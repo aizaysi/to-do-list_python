@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+
+        <!-- https://favicon.io/emoji-favicons/money-bag/ -->
+        <link href="/static/icon.ico" rel="icon">
+
+        <link href="/static/styles.css" rel="stylesheet">
+        {% block style %}{% endblock %}
+
+        <title>Simple {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body>
+        <div class="banner">
+            <div class="navbar">
+                <h1>Simple</h2>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/logout">log out</a></li>
+                    <li><a href="/changePassword">Change Password</a></li>
+                </ul>
+            </div>
+            <div >
+                {% block main %}{% endblock %}
+            </div>
+        </div>
+
+
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary mb-0 text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+
+
+    </body>
+
+</html>
